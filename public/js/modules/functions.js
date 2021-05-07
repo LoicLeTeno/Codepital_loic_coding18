@@ -11,3 +11,12 @@ export function chat() {
         }
     }, 2000);
 }
+
+
+// AVEC INTERVAL
+
+// export function chat() {
+//     setInterval(() => { 
+//         console.log("Miaouw"); 
+//     }, 2000);
+// }
