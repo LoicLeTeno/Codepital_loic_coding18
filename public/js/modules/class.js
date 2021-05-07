@@ -11,9 +11,9 @@ export class Personnes {
         this.traitement = traitement,
 
 
-        this.goTo = (lesVariablesDepartLieu, lesVariablesArriverLieu) => {
+        this.goTo = (lesVariablesDepartLieu, lesVariablesArriverLieu,) => {
             lesVariablesArriverLieu.personnes.push(this);
-            lesVariablesDepartLieu.personnes.splice(this);
+            lesVariablesDepartLieu.personnes.pop();
         },
         
         this.takeCare = () => {
@@ -27,16 +27,21 @@ export class Personnes {
         this.paye = (lesVariablesE) => {
             if (lesVariablesE == lesVariables.docteur) {
                 this.argent = this.argent - 50;
+                lesVariables.docteur.argent = lesVariables.docteur.argent + 50;
 
             } else {
-                if (this.argent > lesVariablesE.prix) {
+                if (this.argent < lesVariablesE.prix) {
                     console.log(`Cheh t'aura rien ${this.nom}`);
 
                     this.etatSante = "Dead";
-                    lesVariables.cimetiere.personnes.push(this)
+
+                    lesVariables.cimetiere.personnes.push(this);
+                    lesVariables.pharmacie.personnes.pop();
                 } else {
                     this.argent = this.argent - lesVariablesE.prix;
                     this.poche.push(lesVariablesE);
+
+                    console.log(`${this.nom} achète avec succès son traitement : ${this.poche[0].nom}`);
                 }
             }
         }

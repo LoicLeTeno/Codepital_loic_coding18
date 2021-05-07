@@ -9,28 +9,30 @@ let docteur = {
 
     diagnostique(personne) {
         if (personne.maladie == "unsave") {
-            personne.traitement = traite_saveOn.traitement;
+            personne.traitement = traite_saveOn.nom;
 
         } else if (personne.maladie == "404") {
-            personne.traitement = traite_chackLink.traitement;
+            personne.traitement = traite_chackLink.nom;
             
         } else if (personne.maladie == "azmatique") {
-            personne.traitement = traite_ventoline.traitement;
+            personne.traitement = traite_ventoline.nom;
 
         } else if (personne.maladie == "syntaxError") {
-            personne.traitement = traite_f12.traitement;
+            personne.traitement = traite_f12.nom;
 
         } else if (personne.maladie == "mal indenté") {
-            personne.traitement = traite_ctrl.traitement;
+            personne.traitement = traite_ctrl.nom;
         }
     },
 
     patientIn(personne) {
         this.cabinet.push(personne);
+        salleAttente.personnes.shift();
     },
 
-    patientOut() {
-        this.cabinet.pop()
+    patientOut(personne) {
+        salleAttente.personnes.push(personne);
+        this.cabinet.pop();
     }
 }
 
@@ -44,7 +46,7 @@ export {optimus, sangoku, darthVader, semicolon};
 let optimus = new Personnes("Optimus", "unsave", 200, [], "malade", "");
 let sangoku = new Personnes("Sangoku", "404", 80, [], "malade", "");
 let darthVader = new Personnes("Darth Vader", "azmatique", 110, [], "malade", "");
-let semicolon = new Personnes("semi-Colon", "syntax Error", 60, [], "malade", "");
+let semicolon = new Personnes("semi-Colon", "syntaxError", 60, [], "malade", "");
 
 
 // OBJECT : lieux
@@ -54,7 +56,7 @@ export {salleAttente, maison, pharmacie, cimetiere};
 let salleAttente = {
     nom : "salle d'attente",
 
-    personne : [optimus, sangoku, darthVader, semicolon]
+    personnes : [optimus, sangoku, darthVader, semicolon]
 }
 
 let pharmacie = {
