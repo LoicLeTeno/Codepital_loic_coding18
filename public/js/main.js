@@ -1,5 +1,6 @@
 // IMPORT
 import * as lesVariables from './modules/variables.js'; 
+import {chat} from './modules/functions.js';
 
 // DÉBUT DES OPÉRATIONS
     // ## OPTIMUS
@@ -22,6 +23,7 @@ console.log(lesVariables.optimus.argent);
 console.log(lesVariables.docteur.argent);
 
 console.log(`${lesVariables.optimus.nom} paye le Dr.${lesVariables.docteur.nom} : 50€`);
+
 
 // optimus sort
 lesVariables.docteur.patientOut(lesVariables.optimus);
@@ -206,5 +208,54 @@ console.log(`${lesVariables.semicolon.nom} est ${lesVariables.semicolon.etatSant
 console.log("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
 
+    // MARCUS
+// marcus rentre dans cabinet
+lesVariables.docteur.patientIn(lesVariables.marcus);
+console.log(lesVariables.salleAttente.personnes);
+console.log(lesVariables.docteur.cabinet);
+
+console.log(`${lesVariables.marcus.nom} rentre dans le cabinet du Dr.${lesVariables.docteur.nom}`);
+
+// docteur diagnostique marcus
+lesVariables.docteur.diagnostique(lesVariables.marcus)
+console.log(lesVariables.marcus.traitement);
+
+console.log(`Dr.${lesVariables.docteur.nom} donne son diagnostique à ${lesVariables.marcus.nom}, il doit prendre du (${lesVariables.marcus.traitement}) pour sa (${lesVariables.marcus.maladie})`);
+
+// marcus paye le doc
+lesVariables.marcus.paye(lesVariables.docteur)
+console.log(lesVariables.marcus.argent);
+console.log(lesVariables.docteur.argent);
+
+console.log(`${lesVariables.marcus.nom} paye le Dr.${lesVariables.docteur.nom} : 50€`);
+
+// marcus sort
+lesVariables.docteur.patientOut(lesVariables.marcus);
+console.log(lesVariables.docteur.cabinet);
+
+console.log(lesVariables.salleAttente.personnes);
+
+console.log(`Dr.${lesVariables.docteur.nom} fait sortir ${lesVariables.optimus.nom}`);
+
+// marcus va  la pharmacie
+lesVariables.semicolon.goTo(lesVariables.salleAttente, lesVariables.pharmacie);
+console.log(lesVariables.salleAttente, lesVariables.pharmacie);
+
+console.log(`${lesVariables.semicolon.nom} va à la ${lesVariables.pharmacie.nom}`);
+
+// marcus veut acheter son traitement
+lesVariables.marcus.paye(lesVariables.traite_ctrl);
+console.log(lesVariables.marcus.poche, `son argent : ${lesVariables.marcus.argent}€`);
+
+// marcus est mort direct cimetière
+console.log(lesVariables.cimetiere.personnes);
+console.log(`${lesVariables.marcus.nom} est ${lesVariables.marcus.etatSante} il est au ${lesVariables.cimetiere.nom}`);
+
+
+console.log("--------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
+
 console.log("Log de fin");
-console.log(lesVariables.sangoku, lesVariables.semicolon, lesVariables.darthVader, lesVariables.optimus, lesVariables.docteur);
+console.log(lesVariables.sangoku, lesVariables.semicolon, lesVariables.darthVader, lesVariables.optimus,lesVariables.marcus, lesVariables.docteur, lesVariables.cimetiere, lesVariables.maison);
+
+chat();

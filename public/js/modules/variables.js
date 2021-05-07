@@ -41,12 +41,13 @@ let docteur = {
     // import
 import {Personnes} from './class.js';
     // export
-export {optimus, sangoku, darthVader, semicolon};
+export {optimus, sangoku, darthVader, semicolon, marcus};
 
 let optimus = new Personnes("Optimus", "unsave", 200, [], "malade", "");
 let sangoku = new Personnes("Sangoku", "404", 80, [], "malade", "");
 let darthVader = new Personnes("Darth Vader", "azmatique", 110, [], "malade", "");
 let semicolon = new Personnes("semi-Colon", "syntaxError", 60, [], "malade", "");
+let marcus = new Personnes("Marcus", "mal indente", 100, [], "malade", "")
 
 
 // OBJECT : lieux
@@ -56,7 +57,7 @@ export {salleAttente, maison, pharmacie, cimetiere};
 let salleAttente = {
     nom : "salle d'attente",
 
-    personnes : [optimus, sangoku, darthVader, semicolon]
+    personnes : [optimus, sangoku, darthVader, semicolon, marcus]
 }
 
 let pharmacie = {
