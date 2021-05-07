@@ -11,8 +11,9 @@ export class Personnes {
         this.traitement = traitement,
 
 
-        this.goTo = (lesVariablesLieu) => {
-
+        this.goTo = (lesVariablesDepartLieu, lesVariablesArriverLieu) => {
+            lesVariablesArriverLieu.personnes.push(this);
+            lesVariablesDepartLieu.personnes.splice(this);
         },
         
         this.takeCare = () => {

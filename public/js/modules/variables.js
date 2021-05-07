@@ -7,11 +7,31 @@ let docteur = {
     argent : 50,
     cabinet : [],
 
-    diagnostique() {},
+    diagnostique(personne) {
+        if (personne.maladie == "unsave") {
+            personne.traitement = traite_saveOn.traitement;
 
-    patientIn() {},
+        } else if (personne.maladie == "404") {
+            personne.traitement = traite_chackLink.traitement;
+            
+        } else if (personne.maladie == "azmatique") {
+            personne.traitement = traite_ventoline.traitement;
 
-    patientOut() {}
+        } else if (personne.maladie == "syntaxError") {
+            personne.traitement = traite_f12.traitement;
+
+        } else if (personne.maladie == "mal indenté") {
+            personne.traitement = traite_ctrl.traitement;
+        }
+    },
+
+    patientIn(personne) {
+        this.cabinet.push(personne);
+    },
+
+    patientOut() {
+        this.cabinet.pop()
+    }
 }
 
 
@@ -34,7 +54,7 @@ export {salleAttente, maison, pharmacie, cimetiere};
 let salleAttente = {
     nom : "salle d'attente",
 
-    personne : []
+    personne : [optimus, sangoku, darthVader, semicolon]
 }
 
 let pharmacie = {
