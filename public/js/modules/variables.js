@@ -40,6 +40,7 @@ let salleAttente = {
 let pharmacie = {
     nom : "pharmacie",
 
+    contenue : [],
     personnes : []
 }
 
@@ -54,3 +55,18 @@ let cimetiere = {
 
     personnes : []
 }
+
+
+// VARIABLES : produits
+    // import
+import {Produits} from './class.js';
+    // export
+export {traite_ctrl, traite_saveOn, traite_chackLink, traite_ventoline,traite_f12};
+
+let traite_ctrl = new Produits("ctrl+maj+f", "à pris", 60);
+let traite_saveOn = new Produits("saveOnFocusChange", "à pris", 100);
+let traite_chackLink = new Produits("CheckLinkRelation", "à pris", 35);
+let traite_ventoline = new Produits("Ventoline", "à pris", 40);
+let traite_f12 = new Produits("f12+doc", "à pris", 20);
+
+pharmacie.contenue = [traite_ctrl, traite_saveOn, traite_chackLink, traite_ventoline,traite_f12];
